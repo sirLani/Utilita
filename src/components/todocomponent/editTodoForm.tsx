@@ -38,7 +38,7 @@ const EditTodoForm = ({ opened, setOpened, title, id }: EditTodoProp) => {
           className="flex flex-col items-center mt-12 mb-8 "
         >
           <Input
-            placeholder="Enter Task"
+            placeholder="Edit your Task"
             value={value}
             onChange={(e) => {
               setValue(e.target.value);

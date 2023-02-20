@@ -1,3 +1,4 @@
+/* eslint-disable multiline-ternary */
 import {
   CheckCircleOutlined,
   DeleteOutlined,
@@ -17,7 +18,6 @@ const TodoItem = ({ id, title, completed }: TodoListType) => {
 
   const dispatch = useAppDispatch();
 
-  //
   const handleIsCompleted = () => {
     dispatch(isCompleted({ id, completed: !(completed ?? false) }));
   };
@@ -40,20 +40,17 @@ const TodoItem = ({ id, title, completed }: TodoListType) => {
         <Text className="capitalize">{title}</Text>
         <Box>
           <EditOutlined onClick={handleEdit} className="cursor-pointer" />
-          {
-            // eslint-disable-next-line multiline-ternary
-            completed === false ? (
-              <CheckCircleOutlined
-                className="ml-7 cursor-pointer"
-                onClick={handleIsCompleted}
-              />
-            ) : (
-              <UndoOutlined
-                className="ml-7 cursor-pointer"
-                onClick={handleIsCompleted}
-              />
-            )
-          }
+          {completed === false ? (
+            <CheckCircleOutlined
+              className="ml-7 cursor-pointer"
+              onClick={handleIsCompleted}
+            />
+          ) : (
+            <UndoOutlined
+              className="ml-7 cursor-pointer"
+              onClick={handleIsCompleted}
+            />
+          )}
           <DeleteOutlined
             data-testid="delete-todoItem"
             className="ml-7 cursor-pointer"
